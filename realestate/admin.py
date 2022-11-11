@@ -65,4 +65,4 @@ admin.site.register(Region,RegionAdmin)
 admin.site.register(Works,WorksAdmin)
 
 admin.site.site_title = 'Central Web Agency'
-admin.site.site_header = 'Taşhan Emlak'
+admin.site.site_header = 'Boss Keys Estate - Suat'

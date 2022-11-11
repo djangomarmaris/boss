@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path
+from django.urls import path , re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls import include
@@ -28,7 +28,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('',views.index,name='index'),
-    path('tashan-emlak/',include('realestate.urls')),
+    path('boss-keys-estate/',include('realestate.urls')),
     path('i18n/',include('django.conf.urls.i18n')),
 
 ]

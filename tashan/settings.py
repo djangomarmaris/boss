@@ -38,7 +38,6 @@ EMAIL_USE_TLS = True
 # Application definition
 
 INSTALLED_APPS = [
-
     'places',
     'jazzmin',
     'modeltranslation',
@@ -53,6 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'realestate',
+
 ]
 
 MIDDLEWARE = [

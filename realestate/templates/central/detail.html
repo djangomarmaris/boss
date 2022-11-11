@@ -9,7 +9,7 @@
 {% block seo %}
 
 
-<title>Tashan Emlak DETAY</title>
+<title>Boss Keys Estate | DETAY</title>
 
 <meta name="description" content="" />
 
@@ -101,14 +101,18 @@
                             <ul>
                                 <li><label>Property ID:</label> <span>245846-{{product.id}}</span></li>
                                 <li><label>m2: </label> <span>{{product.m2}} sqft</span></li>
+                                {% if product.category.name == 'Konut' %}
                                 <li><label>Oda:</label> <span>{{product.bedrooms}}</span></li>
                                 <li><label>Banyo:</label> <span>{{product.bathrooms}}</span></li>
+                                {% else %}
+
+                                {% endif %}
                                 <li><label>Yaş :</label> <span>{{product.build}}</span></li>
                             </ul>
                             <ul>
-                                <li><label>Yetkili:</label> <span>Taşhan Emlak </span></li>
+                                <li><label>Yetkili:</label> <span>Boss Keys Estate </span></li>
                                 <li><label>Durumu:</label> <span>{{product.type}}</span></li>
-                                <li><label>Fiyat:</label> <span>{{product.price}}</span></li>
+                                <li><label>Fiyat:</label> <span>{{product.price | intcomma }} ₺ </span></li>
                                 {% if product.garage == True %}
                                 <li><label>Garaj:</label> <span>Var</span></li>
                                 {% else %}
@@ -260,6 +264,7 @@
                                 </div>
                             </div>
                         </div>
+
 
                         <div class="property-details-google-map mb-60">
                                           <iframe src = "https://maps.google.com/maps?q={{product.location.latitude}},{{product.location.longitude}}&hl=es;z=14&amp;output=embed" width="750" height="400"></iframe>

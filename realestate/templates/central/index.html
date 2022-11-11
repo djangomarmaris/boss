@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% load static i18n %}
-
+{% load humanize %}
 {% block css %}
 <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 {% endblock %}
@@ -9,7 +9,7 @@
 {% block seo %}
 
 
-<title>Tashan Emlak</title>
+<title>Boss Keys Estate</title>
 
 <meta name="description" content="" />
 
@@ -35,48 +35,83 @@
 {% block content %}
 <div class="ltn__utilize-overlay"></div>
 
-    <!-- SLIDER AREA START (slider-3) -->
-    <div class="ltn__slider-area ltn__slider-3  section-bg-1">
-        <div class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1">
-            {% for product in sliders %}
-            <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3">
-                <div class="ltn__slide-item-inner">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 align-self-center">
-                                <div class="slide-item-info">
-                                    <div class="slide-item-info-inner ltn__slide-animation">
-                                        <div class="slide-video mb-50 d-none">
-                                            <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
-                                                <i class="fa fa-play"></i>
-                                            </a>
-                                        </div>
-                                        <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Taşhan Emlak İnşaat</h6>
-                                        <h1 class="slide-title animated ">{{product.name}}</h1>
-                                        <div class="slide-brief animated">
-                                            <p>Taşhan Emlak Ayrıcalıklarıyla | Yılın Fırsat ürünü</p>
-                                        </div>
-                                        <div class="btn-wrapper animated">
-                                            <a href="{{product.get_absolute_url}}" class="theme-btn-1 btn btn-effect-1">TL {{product.price}} | incele</a>
-                                            <!--a class="ltn__video-play-btn bg-white" href="https://www.youtube.com/embed/HnbMYzdjuBs?autoplay=1&amp;showinfo=0" data-rel="lightcase">
-                                                <i class="icon-play  ltn__secondary-color"></i>
-                                            </a-->
+
+
+<div class="ltn__slider-area ltn__slider-11  ltn__slider-11-slide-item-count-show--- ltn__slider-11-pagination-count-show--- section-bg-1">
+        <div class="ltn__slider-11-inner">
+            <div class="ltn__slider-11-active">
+                {% for product in sliders %}
+                <div class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3-normal ltn__slide-item-3 ltn__slide-item-11">
+                    <div class="ltn__slide-item-inner">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-12 align-self-center">
+                                    <div class="slide-item-info">
+                                        <div class="slide-item-info-inner ltn__slide-animation">
+                                            <div class="slide-video mb-50 d-none">
+                                                <a class="ltn__video-icon-2 ltn__video-icon-2-border" href="https://www.youtube.com/embed/tlThdr3O5Qo" data-rel="lightcase:myCollection">
+                                                    <i class="fa fa-play"></i>
+                                                </a>
+                                            </div>
+                                            <h6 class="slide-sub-title white-color--- animated"><span><i class="fas fa-home"></i></span> Boss Keys Estate</h6>
+                                            <h1 class="slide-title animated ">{{product.name}} <br><span>{{product.room}}</span>
+                                                {{product.type}}</h1>
+                                            <div class="slide-brief animated">
+                                                <p>Fırsat Ürün !!!</p>
+                                            </div>
+                                            <div class="btn-wrapper animated">
+                                                <a href="{{product.get_absolute_url}}" class="theme-btn-1 btn btn-effect-1">₺ {{product.price}} | İncele</a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="slide-item-img">
-                                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#">
+                                    <div class="slide-item-img">
+                                        <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="#">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+            <!-- slider-4-pagination -->
+            <div class="ltn__slider-11-pagination-count">
+                <span class="count"></span>
+                <span class="total"></span>
+            </div>
+            <!-- slider-sticky-icon -->
+            <div class="slider-sticky-icon-2">
+                <ul>
+                    <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+            </div>
+            <!-- slider-4-img-slide-arrow -->
+            <div class="ltn__slider-11-img-slide-arrow">
+                <div class="ltn__slider-11-img-slide-arrow-inner">
+                    <div class="ltn__slider-11-img-slide-arrow-active">
+                        {% for product in sliders %}
+                        <div class="image-slide-item">
+                            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% endif %}" alt="Flower Image">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <!-- slider-4-slide-item-count -->
+                    <div class="ltn__slider-11-slide-item-count">
+                        <span class="count"></span>
+                        <span class="total"></span>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
 
+
+
+<br>
+<br>
 <div class="ltn__car-dealer-form-area mt--65 mt-120 pb-115---">
         <div class="container">
             <div class="row">
@@ -91,7 +126,7 @@
                         <div class="tab-content bg-white box-shadow-1 ltn__border position-relative pb-10">
                             <div class="tab-pane fade active show" id="ltn__form_tab_1_1">
                                 <div class="car-dealer-form-inner">
-                                    <form method="get" action="/tashan-emlak/filter/" class="ltn__car-dealer-form-box row">
+                                    <form method="get" action="/boss-keys-estate/filter/" class="ltn__car-dealer-form-box row">
                                         {% csrf_token %}
                                         <div class="ltn__car-dealer-form-item ltn__custom-icon---- ltn__icon-car---- col-lg-4 col-md-3">
                                             <select name="city" class="nice-select">
@@ -186,7 +221,7 @@
                         </div>
                         <div class="product-info-bottom">
                             <div class="product-price">
-                                <span>$ {{product.price}}<label></label></span>
+                                <span>₺  {{product.price | intcomma  }}<label></label></span>
                             </div>
                         </div>
                     </div>
@@ -201,7 +236,7 @@
             <div class="row">
                 <div class="col-lg-6 align-self-center">
                     <div class="about-us-img-wrap about-img-left">
-                        <img src="{% static 'about.png' %}" alt="About Us Image">
+                        <img src="{% static 'boss.png' %}" alt="About Us Image">
 
                     </div>
                 </div>
@@ -211,7 +246,7 @@
                             <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">Hakkımızda</h6>
                             <h1 class="section-title">Sektöründe Lider
                                 Bölgenin Uzmanı<span>.</span></h1>
-                            <p>Taşhan Emlak & İnşaat olarak, gerçekleştirdiğimiz her projeyi bu çağdaş bakış açılarıyla hayata geçiriyoruz. Bugüne kadar olduğu gibi, gelecekte de hayata geçireceğimiz projelerimizle sektöründe sağlam ve istikrarlı adımlarla ilerlemeye devam edeceğiz.</p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
                         </div>
                         <ul class="ltn__list-item-half clearfix">
                             <li>
@@ -232,10 +267,10 @@
                             </li>
                         </ul>
                         <div class="ltn__callout bg-overlay-theme-05  mt-30">
-                            <p>Taşhan İnşaat Emlak olarak, merkezi Aydın’da olan kuruluşumuzda 2016 yılından beri hizmet vermekte ve sektöre değerli katkılarda bulunmaktayız. </p>
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.  </p>
                         </div>
                         <div class="btn-wrapper animated">
-                            <a href="/tashan-emlak/about/" class="theme-btn-1 btn btn-effect-1">Hakkımızda</a>
+                            <a href="/boss-keys-estate/about/" class="theme-btn-1 btn btn-effect-1">Hakkımızda</a>
                         </div>
                     </div>
                 </div>
@@ -350,7 +385,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <h3 class="ltn__blog-title"><a href="blog-details.html">Taşhan inşaat Emlak.</a></h3>
+                            <h3 class="ltn__blog-title"><a href="blog-details.html">Boss Keys Estate.</a></h3>
 
                         </div>
                     </div>
