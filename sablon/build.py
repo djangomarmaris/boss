@@ -55,45 +55,52 @@ def era(city_year, num, title_html, body, img_side):
 </div>""")
 
 POSTS = {
- "01-merhaba": page(f"""
-<img class=eng src='{A}/eng_left.png' style='left:-40px;width:600px;height:560px;object-position:40% 6%'>
-<img class=eng src='{A}/eng_right.png' style='right:-40px;width:600px;height:560px;object-position:70% 6%'>
-<div class=c style='top:180px'>
- <div style='font-size:40px;font-weight:700;color:var(--red);letter-spacing:4px'>MERHABA</div>
- <div class=h style='margin-top:30px'><span class=f style='font-size:120px'>M</span>atbaa iki kez<br>icat edildi.<br><span class=r>Üçüncüsünü<br>biz yaptık.</span></div>
- <div class=dots>Mainz 1455<b>•</b>İstanbul 1727<b>•</b><span style='color:var(--red)'>Türkiye 2023</span></div>
-</div>"""),
- "02-mainz": era("Mainz · 1455", "BİRİNCİ İCAT",
-    "Harfler<br><span class=r>yerinden oynadı.</span>",
-    "Gutenberg'in hareketli harfleri,<br>kitabı birkaç kişinin değil<br>herkesin malı yaptı.", "right"),
- "03-istanbul": era("İstanbul · 1727", "İKİNCİ İCAT",
-    "Osmanlı'nın<br><span class=r>ilk yayınevi.</span>",
-    "İbrahim Müteferrika'nın Sultanahmet'teki<br>atölyesinden çıkan kitaplar,<br>bu toprakların okuma serüvenini başlattı.", "left"),
- "04-turkiye": era("Türkiye · 2023", "ÜÇÜNCÜ İCAT",
-    "Yayınevi <span class=r>5.0</span>",
-    "Yazdığın satırdan okurun eline kadar<br>bütün yolculuk tek çatı altında.", "logo"),
- "05-yazar": page(f"""
-<div class=c style='top:260px'>
- <div class=h style='font-size:104px'><span class=f style='font-size:150px'>K</span>itabın<br>çekmecede<br><span class=r>kalmasın.</span></div>
- <div class=rule><span></span>✦<span></span></div>
- <div class=b>Müsvedden, dosyan, yarım kalmış romanın…<br>Hepsinin bir okuru var.<br>Onu birlikte bulalım.</div>
- <div style='margin-top:60px'><span class=pill style='font-size:38px'>Kitabını bizimle yayımla</span></div>
-</div>"""),
- "06-yolculuk": page(f"""
-<div class=c style='top:200px'>
- <div class=h style='font-size:78px'>Bir kitabın<br><span class=r>yolculuğu</span></div>
- <div class=rule><span></span>✦<span></span></div>
- <div style='text-align:left;margin:10px auto 0;width:640px'>
- {''.join(f"<div style='display:flex;align-items:center;gap:30px;margin:0 0 26px'><span style='width:74px;height:74px;flex:none;border-radius:8px;background:{'var(--red)' if i in (0,5) else 'var(--ink)'};color:#fff;font-size:40px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 {'#7d0c12' if i in (0,5) else '#000'}'>{i+1}</span><span style='font-size:46px;font-weight:700'>{t}</span></div>" for i,t in enumerate(['Yazı','Editörlük ve düzelti','Dizgi','Kapak tasarımı','ISBN ve bandrol','Okur']))}
- </div>
-</div>"""),
- "07-biliyor": page(f"""
-<img class=eng src='{A}/eng_left.png' style='left:50%;transform:translateX(-50%);width:1080px;height:480px;object-position:50% 4%;opacity:.45'>
+ "08-cihannuma": era("İstanbul · 1732", "İLK KİTAPLARDAN",
+    "Dünya<br><span class=r>sayfaya sığdı.</span>",
+    "Kâtip Çelebi'nin Cihannüma'sı,<br>Müteferrika matbaasında<br>haritalarıyla birlikte basıldı.", "left"),
+ "09-isbn": page(f"""
+<img class=eng src='{A}/eng_right.png' style='left:50%;transform:translateX(-50%);width:1080px;height:480px;object-position:60% 20%;opacity:.45'>
 <div class=c style='top:200px'>
  <span class=pill>Biliyor muydunuz?</span>
- <div style='font-size:330px;font-weight:700;color:var(--red);line-height:1;margin-top:30px'>17</div>
- <div class=h style='font-size:60px;margin-top:0'>Müteferrika matbaası,<br>1729-1742 arasında<br>17 eser bastı.</div>
- <div class=b style='margin-top:30px'>İlki, iki ciltlik Vankulu Lügati'ydi.</div>
+ <div style='font-size:330px;font-weight:700;color:var(--red);line-height:1;margin-top:30px'>13</div>
+ <div class=h style='font-size:60px;margin-top:0'>Bugünkü ISBN numarası<br>13 haneden oluşur.</div>
+ <div class=b style='margin-top:30px'>2007'ye kadar 10 haneliydi.<br>Her baskının kendi kimliği vardır.</div>
+</div>"""),
+ "10-yazar": page(f"""
+<div class=c style='top:250px'>
+ <div class=h style='font-size:100px'><span class=f style='font-size:146px'>İ</span>lk cümleni<br>yazdın.<br><span class=r>Gerisini konuşalım.</span></div>
+ <div class=rule><span></span>✦<span></span></div>
+ <div class=b>Taslak hâlindeki dosyan da,<br>yıllardır biriktirdiğin metinler de<br>bir yayın yolculuğunun başlangıcı olabilir.</div>
+ <div style='margin-top:60px'><span class=pill style='font-size:38px'>Kitabını bizimle yayımla · DM</span></div>
+</div>"""),
+ "01-harf-devrimi": era("Ankara · 1 Kasım 1928", "BİR DÖNÜM NOKTASI",
+    "Yeni harfler,<br><span class=r>yeni okurlar.</span>",
+    "Türk harflerinin kabulüne dair kanun<br>1 Kasım 1928'de TBMM'de kabul edildi.<br>Kitap, yeni bir alfabeyle buluştu.", "right"),
+ "02-editorluk": page(f"""
+<div class=c style='top:200px'>
+ <div style='font-size:40px;font-weight:700;color:var(--mute);letter-spacing:6px'>BİR KİTABIN YOLCULUĞU</div>
+ <div class=h style='font-size:84px;margin-top:24px'>Adım 2:<br><span class=r>Editörlük</span></div>
+ <div class=rule><span></span>✦<span></span></div>
+ <div style='text-align:left;margin:10px auto 0;width:720px'>
+ {''.join(f"<div style='display:flex;align-items:center;gap:30px;margin:0 0 26px'><span style='width:74px;height:74px;flex:none;border-radius:8px;background:{'var(--red)' if i==0 else 'var(--ink)'};color:#fff;font-size:40px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 0 {'#7d0c12' if i==0 else '#000'}'>{i+1}</span><span style='font-size:44px;font-weight:700'>{t}</span></div>" for i,t in enumerate(['Kurgu ve bütünlük','Anlatım ve dil','Tutarlılık kontrolü','Yazım ve noktalama']))}
+ </div>
+ <div class=b style='margin-top:20px'>Editör metni değiştirmez, güçlendirir.</div>
+</div>"""),
+ "03-yirmi-sayfa": page(f"""
+<img class=eng src='{A}/eng_left.png' style='left:-40px;width:600px;height:520px;object-position:40% 6%;opacity:.8'>
+<img class=eng src='{A}/eng_right.png' style='right:-40px;width:600px;height:520px;object-position:70% 6%;opacity:.8'>
+<div class=c style='top:190px'>
+ <div style='font-size:40px;font-weight:700;color:var(--red);letter-spacing:4px'>OKUMA ALIŞKANLIĞI</div>
+ <div class=h style='margin-top:26px;font-size:80px'>Günde<br><span class=r>20 sayfa</span></div>
+ <div class=rule><span></span>✦<span></span></div>
+ <div class=b>Bir yılda 7.300 sayfa eder.<br>300 sayfalık kitaplarla<br>yaklaşık <b style='color:var(--red)'>24 kitap</b>.</div>
+</div>"""),
+ "04-okur-sorusu": page(f"""
+<div class=c style='top:270px'>
+ <span class=pill>Sizce?</span>
+ <div class=h style='font-size:96px;margin-top:50px'><span class=f style='font-size:140px'>H</span>ayatınızda<br>iz bırakan<br><span class=r>kitap hangisi?</span></div>
+ <div class=rule><span></span>✦<span></span></div>
+ <div class=b>Yorumlara yazın,<br>okur listemizi birlikte oluşturalım.</div>
 </div>"""),
 }
 
