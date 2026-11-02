@@ -17,3 +17,27 @@
 2026-11-10 deniz-alti
 2026-11-11 ejderha-diyari
 2026-11-12 modern-sade
+2026-11-03 kece-masal
+2026-11-04 sinematik
+2026-11-05 ebru
+2026-11-06 sevimli-hayvanlar
+2026-11-07 robot-atolyesi
+2026-11-08 art-deco
+2026-11-09 balon-dunyasi
+2026-11-04 parmak-boya (tahmin)
+2026-11-07 botanik-atlas (tahmin)
+2026-11-05 noktali-desen (karusel 3-7)
+2026-11-05 iskandinav-masali (karusel 3-7)
+2026-11-05 tebesir-tahtasi (karusel 3-7)
+2026-11-05 geometrik-sekiller (karusel 3-7)
+2026-11-05 sicak-guaj (karusel 3-7)
+2026-11-08 doga-gozlemcisi (karusel 8-12)
+2026-11-08 manga-esintisi (karusel 8-12)
+2026-11-08 mizah-karikatur (karusel 8-12)
+2026-11-08 tarihte-yolculuk (karusel 8-12)
+2026-11-08 sokak-sanati (karusel 8-12)
+2026-11-09 grafik-roman (karusel genç/yetişkin)
+2026-11-09 lofi-gece (karusel genç/yetişkin)
+2026-11-09 neon-bilimkurgu (karusel genç/yetişkin)
+2026-11-09 edebi-minimal (karusel genç/yetişkin)
+2026-11-09 seyahat-suluboya (karusel genç/yetişkin)
