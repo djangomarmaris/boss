@@ -32,6 +32,11 @@ S = {
  "noir-roman": ("Noir Roman", "Yağmur, sis ve tek bir kırmızı.", "Polisiye ve gerilim", ["#000000","#B5121B","#D9D9D9","#595959","#F2F2F2"], "yetiskin"),
 }
 
+_J = os.path.join(D, "tarzlar.json")
+if os.path.exists(_J):  # 80 tarzın tamamı (proje veritabanından)
+    for _r in json.load(open(_J)):
+        S[_r["slug"]] = (_r["name"], _r["tagline"], _r["ideal_for"], _r["palette"], _r["age"][0])
+
 CSS = f"""
 @font-face{{font-family:Frak;src:url({A}/frak.woff2)}}
 *{{margin:0;padding:0;box-sizing:border-box}}
