@@ -87,7 +87,7 @@ const SAMPLES = [
     feats: [['Havalimanı', 'Uçuşunuza göre karşılama'], ['Aile & grup', 'Geniş araç, bol bagaj'], ['Türkiye', 'Tüm havalimanları']] }],
 ];
 
-(async () => {
+if (require.main === module) (async () => {
   const out = path.join(__dirname, 'v2'); fs.mkdirSync(out, { recursive: true });
   const only = process.argv[2];
   const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' }); const p = await b.newPage(); const fl = [];
@@ -100,4 +100,4 @@ const SAMPLES = [
   }
   await b.close(); console.log(fl.join('\n'));
 })();
-module.exports = { A, B, V, ticket };
+module.exports = { A, B, V, ticket, BASE, BP, VANI };
