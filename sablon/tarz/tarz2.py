@@ -64,3 +64,23 @@ body{{background:#1b1d22;color:#fff}}</style></head><body>
 <div style='position:absolute;top:900px;left:0;right:0;display:flex;justify-content:center'>{row}</div>
 <div class=foot style='color:#9a948a'><span>@eyayinevi</span><span style='color:#e8b4b4'>Takipte kal</span></div>
 </body></html>"""
+
+
+def compare_card(title_html, sub, a, b, kicker="SEN SEÇ", cta="Yorumlara A ya da B yaz"):
+    """İki kapağı yan yana gösteren 'A mı, B mi?' kartı. a, b: tarz slug'ı."""
+    def col(slug, letter):
+        return (f"<div style='width:440px;text-align:center'>"
+                f"<div style='height:520px;display:flex;align-items:flex-end;justify-content:center'>{cover_html(slug, 500)}</div>"
+                f"<div style='margin:44px auto 0;width:66px;height:66px;border-radius:8px;background:var(--ink);color:#fff;font-size:40px;font-weight:700;display:flex;align-items:center;justify-content:center'>{letter}</div>"
+                f"<div style='font-size:40px;font-weight:700;margin-top:14px;line-height:1.1'>{S[slug][0]}</div>"
+                f"<div style='font-size:27px;font-style:italic;color:var(--mute);margin-top:8px;line-height:1.2'>{S[slug][1]}</div></div>")
+    return doc(f"""
+<div style='position:absolute;top:140px;left:60px;right:60px;text-align:center'>
+ <span class='chip r'>{kicker}</span>
+ <div style='font-size:70px;font-weight:700;line-height:1.05;margin-top:18px'>{title_html}</div>
+ <div style='font-size:32px;color:#2b2925;margin-top:10px'>{sub}</div>
+</div>
+<div style='position:absolute;top:400px;left:0;right:0;display:flex;justify-content:center;gap:60px'>{col(a,"A")}{col(b,"B")}</div>
+<div class=shelf style='top:928px'></div>
+<div class=cta style='bottom:100px'>{cta}</div>
+<div class=foot><span>@eyayinevi</span><span style='color:var(--red)'>Yayınevi 5.0</span></div>""")
