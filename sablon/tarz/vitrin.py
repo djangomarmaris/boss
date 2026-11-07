@@ -14,20 +14,37 @@ DOODLES = """
 <svg style='position:absolute;right:40px;bottom:230px' width='90' height='170' viewBox='0 0 60 120' fill='none' stroke='#E45D5D' stroke-width='3.5' stroke-linecap='round'><ellipse cx='30' cy='30' rx='24' ry='28' fill='#F7A1A1'/><path d='M30 58 Q22 75 32 88 Q42 100 28 116'/></svg>
 <svg style='position:absolute;left:30px;bottom:150px' width='90' height='90' viewBox='0 0 100 100' stroke='#E8B53A' stroke-width='4' fill='#FFE08A'><circle cx='50' cy='28' r='14'/><circle cx='72' cy='50' r='14'/><circle cx='50' cy='72' r='14'/><circle cx='28' cy='50' r='14'/><circle cx='50' cy='50' r='10' fill='#fff'/></svg>
 <svg style='position:absolute;right:30px;top:250px' width='70' height='70' viewBox='0 0 100 100' stroke='#E8B53A' stroke-width='4' fill='#FFE08A'><circle cx='50' cy='28' r='14'/><circle cx='72' cy='50' r='14'/><circle cx='50' cy='72' r='14'/><circle cx='28' cy='50' r='14'/><circle cx='50' cy='50' r='10' fill='#fff'/></svg>"""
-def vitrin(kicker, line1, line2, slugs, foot="Kitabını bastırmak için DM'den yaz →"):
+def tiles(text, size, bg="#16181D", fg="#fff", red_first=False):
+    out = []
+    for i, ch in enumerate(text):
+        if ch == " ":
+            out.append(f"<span style='display:inline-block;width:{size*0.35}px'></span>"); continue
+        b = "#B5121B" if (red_first and i == 0) else bg
+        sh = "#7d0c12" if (red_first and i == 0) else "#000"
+        out.append(f"<span style='display:inline-flex;align-items:center;justify-content:center;width:{size*0.82}px;height:{size*1.05}px;margin:0 2px;background:{b};color:{fg};border-radius:{size*0.12}px;box-shadow:0 {size*0.08}px 0 {sh};font-family:\"Liberation Serif\",serif;font-weight:700;font-size:{size*0.78}px'>{ch}</span>")
+    return "".join(out)
+
+def vitrin(kicker, line1, line2, slugs, foot="Tarzını seç, kitabını bastır"):
+    """Dizgi kasası vitrini: ahşap kasanın gözlerinde kapaklar, altlarında tarz adı; başlık harf bloklarıyla."""
     sq = S[slugs[0]][4] == "3-7"
-    cols = 3; w = 268 if sq else 250; h = w if sq else round(w * 1.5)
-    gap = 26
-    covers = "".join(f"<div style='width:{w}px;height:{h}px;border-radius:4px 8px 8px 4px;overflow:hidden;box-shadow:6px 10px 18px rgba(40,30,20,.28);position:relative'><img src='{C}/kapak-{s}.jpg' style='width:100%;height:100%;object-fit:cover'><div style='position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(to right,rgba(0,0,0,.22),rgba(255,255,255,.15))'></div></div>" for s in slugs)
-    return f"""<html><head><meta charset=utf-8><style>{FONT}*{{margin:0;box-sizing:border-box}}body{{width:1080px;height:1350px;background:#FFFBF2;position:relative;overflow:hidden;font-family:B,sans-serif}}</style></head><body>
-{DOODLES}
-<div style='position:absolute;top:44px;left:0;right:0;text-align:center'>
- <div style='font-size:42px;font-weight:800;color:#E8833A;letter-spacing:1px'>{kicker}</div>
- <div style='font-size:96px;font-weight:800;color:#7BAE3F;line-height:1;margin-top:8px;text-shadow:3px 3px 0 #fff'>{line1}</div>
- <div style='font-size:80px;font-weight:800;color:#2F6FCF;line-height:1.05;margin-top:6px'>{line2}</div>
+    w = 236 if sq else 244; h = w if sq else round(w * 1.5)
+    cell_w, cell_h = w + 36, h + 70
+    letters = len(line1.replace(" ", ""))
+    tsize = min(78, int(900 / max(letters, 1) / 0.86))
+    cells = "".join(
+        f"<div style='width:{cell_w}px;height:{cell_h}px;background:linear-gradient(#E9D3AE,#DDC08F);box-shadow:inset 0 6px 10px rgba(80,50,20,.35),inset 0 -2px 0 rgba(255,255,255,.4);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:14px'>"
+        f"<div style='width:{w}px;height:{h}px;border-radius:3px 7px 7px 3px;overflow:hidden;box-shadow:4px 8px 14px rgba(40,25,10,.35);position:relative'><img src='{C}/kapak-{s}.jpg' style='width:100%;height:100%;object-fit:cover'><div style='position:absolute;left:0;top:0;bottom:0;width:10px;background:linear-gradient(to right,rgba(0,0,0,.25),rgba(255,255,255,.15))'></div></div>"
+        f"<div style='margin-top:12px;background:#B5121B;color:#fff;font-family:\"Liberation Serif\",serif;font-weight:700;font-size:21px;padding:3px 12px;border-radius:4px;white-space:nowrap'>{S[s][0]}</div></div>"
+        for s in slugs)
+    return f"""<html><head><meta charset=utf-8><style>*{{margin:0;box-sizing:border-box}}body{{width:1080px;height:1350px;background:#F4EEE3;position:relative;overflow:hidden;font-family:"Liberation Serif",serif;color:#16181D}}</style></head><body>
+<div style='position:absolute;inset:0;background:radial-gradient(ellipse at 50% 30%,rgba(255,255,255,.65),transparent 65%)'></div>
+<div style='position:absolute;top:36px;left:0;right:0;text-align:center'>
+ <div style='font-size:24px;font-weight:700;letter-spacing:6px;color:#B5121B'>{kicker}</div>
+ <div style='margin-top:14px;white-space:nowrap'>{tiles(line1, tsize, red_first=True)}</div>
+ <div style='font-size:44px;font-style:italic;font-weight:700;color:#B5121B;margin-top:16px'>{line2}</div>
 </div>
-<div style='position:absolute;top:{360 if sq else 360}px;left:0;right:0;display:grid;grid-template-columns:repeat({cols},{w}px);gap:{gap}px;justify-content:center'>{covers}</div>
-<div style='position:absolute;bottom:34px;left:0;right:0;display:flex;align-items:center;justify-content:center;gap:24px'>
- <img src='{AS}/wordmark.png' style='height:44px'>
- <span style='font-size:38px;font-weight:700;color:#2B2B2B'>{foot}</span>
+<div style='position:absolute;top:{262 if sq else 268}px;left:50%;transform:translateX(-50%);padding:18px;background:#6B4423;border-radius:10px;box-shadow:0 14px 30px rgba(40,25,10,.35),inset 0 0 0 3px #8A5A33;display:grid;grid-template-columns:repeat(3,{cell_w}px);gap:12px'>{cells}</div>
+<div style='position:absolute;bottom:34px;left:60px;right:60px;display:flex;align-items:center;justify-content:space-between'>
+ <img src='{AS}/wordmark.png' style='height:46px'>
+ <span style='background:#B5121B;color:#fff;font-weight:700;font-size:32px;padding:12px 26px;border-radius:8px;box-shadow:0 4px 0 #7d0c12'>{foot}</span>
 </div></body></html>"""
